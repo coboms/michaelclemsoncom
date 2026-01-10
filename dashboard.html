@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Household Dashboard</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Household Dashboard</h1>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Budget Overview</h2>
+
+      <!-- Power BI embed goes here -->
+      <div class="embed">
+        <iframe
+          src="PUT_POWER_BI_EMBED_URL_HERE"
+          frameborder="0"
+          allowfullscreen="true">
+        </iframe>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Upcoming</h2>
+
+      <ul class="events">
+        <li>
+          <span class="date">Today</span>
+          <span class="event">Therapy 12:00–1:00</span>
+        </li>
+        <li>
+          <span class="date">Wed</span>
+          <span class="event">Work</span>
+        </li>
+        <li>
+          <span class="date">Fri</span>
+          <span class="event">Payment due</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>
