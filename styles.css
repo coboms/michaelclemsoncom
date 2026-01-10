@@ -74,6 +74,6 @@ main {
 }
 
 iframe {
-  clip-path: inset(0 0 45px 0); /* Adjust '37px' to hide the bar */
+  clip-path: inset(0 0 75px 0); /* Adjust '37px' to hide the bar */
 }
 
