@@ -43,12 +43,19 @@
       display: grid;
       gap: 16px;
     }
+    
+    main.wrap {
+      height: calc(100vh - 70px); /* 70px = approx header height */
+    }
 
     .card {
       background: #fff;
       border-radius: 10px;
       padding: 16px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .status {
@@ -72,6 +79,16 @@
     .fc .fc-scrollgrid { border-radius: 10px; overflow: hidden; }
     .fc-theme-standard td, .fc-theme-standard th { border-color: #eee; }
     .fc-theme-standard .fc-scrollgrid { border-color: #eee; }
+    
+    #calendar {
+      flex: 1;
+      min-height: 0;
+    }
+  
+    .status {
+      margin-top: 6px;
+      font-size: 0.85rem;
+    }
 
     /* Optional: keep month cells readable */
     /* FullCalendar will show "+N more" if too many events in a day */
@@ -139,6 +156,8 @@
 
       const cal = new FullCalendar.Calendar(document.getElementById("calendar"), {
         initialView: "dayGridMonth",
+        height: "100%",
+        expandRows: true,
         fixedWeekCount: false,
         dayMaxEvents: 3,
         headerToolbar: {
