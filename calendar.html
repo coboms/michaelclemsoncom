@@ -12,87 +12,118 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
 
   <style>
-    * { box-sizing: border-box; }
+  * { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f4f6f8;
-      color: #111;
-    }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f4f6f8;
+    color: #111;
+  }
 
-    header {
-      padding: 16px 24px;
-      background: #fff;
-      border-bottom: 1px solid #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
+  /* Full-page two-column layout */
+  .layout {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    background: #f4f6f8;
+  }
 
-    h1 {
-      margin: 0;
-      font-size: 1.2rem;
-    }
+  /* Left nav */
+  .sidebar {
+    background: #fff;
+    border-right: 1px solid #ddd;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px;
-      display: grid;
-      gap: 16px;
-    }
-    
-    main.wrap {
-      height: calc(100vh - 70px); /* 70px = approx header height */
-    }
+  .brand {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
 
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
+  .navlink {
+    text-decoration: none;
+    color: #111;
+    padding: 10px 10px;
+    border-radius: 8px;
+    opacity: 0.85;
+  }
 
-    .status {
-      color: #666;
-      font-size: 0.95rem;
-      margin-top: 10px;
-    }
+  .navlink:hover {
+    opacity: 1;
+    background: #f4f6f8;
+  }
 
-    /* Make the calendar feel less “widgety” */
-    .fc .fc-toolbar {
-      margin-bottom: 6px;
-    }
-    
-    .fc .fc-toolbar-title {
-      font-size: 1rem;
-    }
-    .fc .fc-button {
-      padding: 4px 8px;
-      font-size: 0.85rem;
-    }
-    .fc .fc-scrollgrid { border-radius: 10px; overflow: hidden; }
-    .fc-theme-standard td, .fc-theme-standard th { border-color: #eee; }
-    .fc-theme-standard .fc-scrollgrid { border-color: #eee; }
-    
-    #calendar {
-      flex: 1;
-      min-height: 0;
-    }
-  
-    .status {
-      margin-top: 6px;
-      font-size: 0.85rem;
-    }
+  .navlink.active {
+    opacity: 1;
+    background: #f0f2f4;
+    font-weight: 600;
+  }
 
-    /* Optional: keep month cells readable */
-    /* FullCalendar will show "+N more" if too many events in a day */
-  </style>
+  .spacer { flex: 1; }
+
+  .sidehint {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 10px;
+  }
+
+  .sidebtn {
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 10px;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .sidebtn:hover { background: #f4f6f8; }
+
+  /* Right content */
+  .content {
+    padding: 16px;
+    overflow: hidden; /* keeps layout tidy */
+  }
+
+  .card {
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  #calendar {
+    flex: 1;
+    min-height: 0; /* required so FullCalendar can size inside flex */
+  }
+
+  .status {
+    color: #666;
+    margin-top: 6px;
+    font-size: 0.85rem;
+  }
+
+  /* Make FullCalendar tighter */
+  .fc .fc-toolbar { margin-bottom: 6px; }
+  .fc .fc-toolbar-title { font-size: 1rem; }
+  .fc .fc-button { padding: 4px 8px; font-size: 0.85rem; }
+  .fc .fc-scrollgrid { border-radius: 10px; overflow: hidden; }
+  .fc-theme-standard td,
+  .fc-theme-standard th { border-color: #eee; }
+  .fc-theme-standard .fc-scrollgrid { border-color: #eee; }
+
+  @media (max-width: 800px) {
+    .layout { grid-template-columns: 160px 1fr; }
+  }
+</style>
+
 </head>
 <body>
 
