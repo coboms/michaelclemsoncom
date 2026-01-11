@@ -3,51 +3,146 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>Household Dashboard</title>
 
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f4f6f8;
+      color: #111;
+    }
+
+    .layout {
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 180px 1fr; /* adjust narrower/wider here */
+      background: #f4f6f8;
+    }
+
+    .sidebar {
+      background: #fff;
+      border-right: 1px solid #ddd;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .navlink {
+      text-decoration: none;
+      color: #111;
+      padding: 8px 10px;
+      border-radius: 8px;
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+
+    .navlink:hover {
+      opacity: 1;
+      background: #f4f6f8;
+    }
+
+    .navlink.active {
+      opacity: 1;
+      background: #f0f2f4;
+      font-weight: 600;
+    }
+
+    .spacer { flex: 1; }
+
+    .content {
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .card {
+      height: 100%;
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .title-row h1 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .muted {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Power BI wrapper */
+    .embed {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      /* Optional crop hack if you still want to hide bottom tabs (brittle) */
+      clip-path: inset(0 0 55px 0);
+    }
+
+    @media (max-width: 800px) {
+      .layout { grid-template-columns: 160px 1fr; }
+      .navlink { font-size: 0.9rem; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="brand">Finances</div>
 
-  <header>
-    <h1>Household Dashboard</h1>
-  </header>
+      <a class="navlink active" href="/dashboard.html">Home</a>
+      <a class="navlink" href="/calendar.html">Calendar</a>
 
-  <main>
-    <section class="card">
-      <h2>Budget Overview</h2>
+      <div class="spacer"></div>
 
-      <!-- Power BI embed goes here -->
-      <div class="embed">
-        <iframe
-          title="Simplifi Dashboard"
-          src="https://app.powerbi.com/view?r=eyJrIjoiMmZlZjE5MDQtNGQ2Zi00ZDdmLWJhNTgtOGI3Y2M2MDEzNmY0IiwidCI6ImJjMGZhNDcyLWViZDUtNDBkMC05MmIwLTM4NGUwYWY0YjA1NSIsImMiOjZ9&navContentPaneEnabled=false&pageNavigation=0"
-          frameborder="0" 
-          allowfullscreen="true">
-        </iframe>
-      </div>
-    </section>
+      <div class="muted">Tip: pin this page on the tablet.</div>
+    </nav>
 
-    <section class="card">
-      <h2>Upcoming</h2>
-
-      <ul class="events">
-        <li>
-          <span class="date">Today</span>
-          <span class="event">Therapy 12:00–1:00</span>
-        </li>
-        <li>
-          <span class="date">Wed</span>
-          <span class="event">Work</span>
-        </li>
-        <li>
-          <span class="date">Fri</span>
-          <span class="event">Payment due</span>
-        </li>
-      </ul>
-    </section>
-  </main>
-
+    <main class="content">
+      <section class="card">
+        <div class="title-row">
+          <h1>Budget</h1>
+          <div class="muted">Power BI</div>
+        </div>
+        <div class="embed">
+          <iframe title="Simplifi Dashboard" width="1280" height="720" 
+            src="https://app.powerbi.com/view?r=eyJrIjoiMmZlZjE5MDQtNGQ2Zi00ZDdmLWJhNTgtOGI3Y2M2MDEzNmY0IiwidCI6ImJjMGZhNDcyLWViZDUtNDBkMC05MmIwLTM4NGUwYWY0YjA1NSIsImMiOjZ9" frameborder="0" allowFullScreen="true">
+          </iframe>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
