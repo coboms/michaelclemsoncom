@@ -96,17 +96,29 @@
 </head>
 <body>
 
-  <header>
-    <h1>Calendar</h1>
-    <a href="/" style="text-decoration:none; color:#111; opacity:0.8;">Back</a>
-  </header>
+  <div class="layout">
+  <nav class="sidebar">
+    <div class="brand">Dashboard</div>
 
-  <main class="wrap">
+    <a class="navlink" href="/">Home</a>
+    <a class="navlink active" href="/calendar.html">Calendar</a>
+
+    <div class="spacer"></div>
+
+    <div class="sidehint">Views</div>
+    <button class="sidebtn" data-view="dayGridMonth">Month</button>
+    <button class="sidebtn" data-view="timeGridWeek">Week</button>
+    <button class="sidebtn" data-view="timeGridDay">Day</button>
+  </nav>
+
+  <main class="content">
     <section class="card">
       <div id="calendar"></div>
       <div id="status" class="status"></div>
     </section>
   </main>
+</div>
+</main>
 
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
   <script>
