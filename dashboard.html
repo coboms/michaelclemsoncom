@@ -107,7 +107,7 @@
       height: 100%;
       border: 0;
       /* Optional crop hack if you still want to hide bottom tabs (brittle) */
-      clip-path: inset(0 0 55px 0);
+      clip-path: inset(0 0 60px 0);
     }
 
     @media (max-width: 800px) {
@@ -120,9 +120,8 @@
 <body>
   <div class="layout">
     <nav class="sidebar">
-      <div class="brand">Finances</div>
 
-      <a class="navlink active" href="/dashboard.html">Home</a>
+      <a class="navlink active" href="/dashboard.html">Finances</a>
       <a class="navlink" href="/calendar.html">Calendar</a>
 
       <div class="spacer"></div>
@@ -132,10 +131,6 @@
 
     <main class="content">
       <section class="card">
-        <div class="title-row">
-          <h1>Budget</h1>
-          <div class="muted">Power BI</div>
-        </div>
         <div class="embed">
           <iframe title="Simplifi Dashboard" width="1280" height="720" 
             src="https://app.powerbi.com/view?r=eyJrIjoiMmZlZjE5MDQtNGQ2Zi00ZDdmLWJhNTgtOGI3Y2M2MDEzNmY0IiwidCI6ImJjMGZhNDcyLWViZDUtNDBkMC05MmIwLTM4NGUwYWY0YjA1NSIsImMiOjZ9" frameborder="0" allowFullScreen="true">
